@@ -1,0 +1,72 @@
+##これは,python を用いた「じゃんけんゲームのプロダクト」です
+##じゃんけん星人を倒しましょう
+
+import random
+from time import sleep
+janken = { 0:'グー' , 1:'チョキ' , 2:'パー'}
+Continue = 0
+win = 0
+enemy = "じゃんけん星人: "
+
+print("{}{}".format(enemy,"名前を教えてくれ！"))
+user = input()
+sleep(1)
+print("{}{}{}".format(enemy,user," じゃんけんするぞ！"))
+sleep(1)
+
+while Continue == 0:
+  print("{}{}".format(enemy,"じゃんけん..."))
+  sleep(1)
+
+  print("数字を入力してね [0:グー , 1:チョキ , 2:パー]")
+  _1p = int(input())
+  _2p = random.randint(0,2)
+
+  print("{}{}{}{}".format("あなた:",janken[_1p],"  じゃんけん星人:",janken[_2p]))
+  sleep(3)
+
+
+  if _2p == _1p:
+    print("あいこだ！もう一回！")
+    sleep(1)
+  elif _1p == 2 and _2p == 0:
+    win += 1
+    print("{}{}{}".format("あなたの勝ち！ ",win, "連勝中!"))
+    sleep(1)
+    print("{}{}".format(enemy,"くそ～～負けたぜ！"))
+    sleep(1)
+    print("{}{}".format(enemy,"もう一回勝負するか？"))
+    sleep(1)
+    print("数字を入力してね [0: はい　, 1:　いいえ　]")
+    key = int(input())
+    if key == 1:
+      Continue += 1
+    sleep(1)
+  elif _1p == 1 and _2p == 2:
+    win += 1
+    print("{}{}{}".format("あなたの勝ち！ ",win, "連勝中!"))
+    sleep(1)
+    print("{}{}".format(enemy,"くそ～～負けたぜ！"))
+    sleep(1)
+    print("{}{}".format(enemy,"もう一回勝負するか？"))
+    sleep(1)
+    print("数字を入力してね [0: はい　, 1:　いいえ　]")
+    key = int(input())
+    if key == 1:
+      Continue += 1
+  elif _1p == 0 and _2p == 1:
+    win += 1
+    print("{}{}{}".format("あなたの勝ち！ ",win, "連勝中!"))
+    sleep(1)
+    print("{}{}".format(enemy,"くそ～～負けたぜ！"))
+    sleep(1)
+    print("{}{}".format(enemy,"もう一回勝負するか？"))
+    sleep(1)
+    print("数字を入力してね [0: はい　, 1:　いいえ　]")
+    key = int(input())
+    if key == 1:
+      Continue += 1
+  else:
+    print("お前の負けだ，帰れ！")
+    Continue = 1
+
